@@ -13,6 +13,6 @@ require 'rake'
 require 'rspec/core'
 require 'rspec/core/rake_task'
 
-Rspec::Core::RakeTask.new(:rspec)
+RSpec::Core::RakeTask.new(:rspec)
 
 task :default => :rspec
