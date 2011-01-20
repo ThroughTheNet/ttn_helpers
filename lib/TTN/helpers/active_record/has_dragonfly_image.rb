@@ -7,13 +7,12 @@ module TTN
 
         image_accessor options[:name]
 
-        validates_presence_of options[:name], :message => 'Please specify an image for upload' if options[:validates_presence]
+        validates_presence_of options[:name] if options[:validates_presence]
 
         validates_size_of options[:name], :maximum => options[:max_size_mb].megabytes,
-        :message => "Image is too large, max #{options[:max_size_mb]}mb",
         :max_image_size => options[:max_size_mb].megabytes if options[:validates_size]
 
-        validates_property :mime_type, :of => options[:name], :in => %w(image/jpeg image/png image/gif), :message => 'Image must be a JPEG, a PNG or a GIF, you uploaded a %{value}'
+        validates_property :mime_type, :of => options[:name], :in => %w(image/jpeg image/png image/gif)
       end
 
 
